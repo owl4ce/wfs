@@ -9,3 +9,7 @@ git clone https://github.com/owl4ce/wine-font-smoothing.git
 or download it as a zip. After that, execute the [wfs](./wfs) program.
 
 > :heavy_check_mark: Successfully tested at **wine-5.16 (Staging)**
+
+---
+
+<img src="./assets/winecfg.png" alt="screenshots: winecfg" align="center">
