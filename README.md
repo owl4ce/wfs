@@ -1,4 +1,4 @@
-## :wine_glass: Wine Font Smoothing
+## :wine_glass: WINE Font Smoothing
 
 <a href="./assets/preview.gif"><img src="./assets/preview.gif" alt="preview" align="right" width="516px"></a>
 
