@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+# Dialog program for smoothing WINE fonts
+# Author: owl4ce
+
+WINE=${WINE:-wine}
+WINEPREFIX=${WINEPREFIX:-$HOME/.wine}
+DIALOG=whiptail
+
+# Checking WINE installation
+if [ ! -x "`which "$WINE"`" ]
+then
+    echo "WINE was not found, was it installed? ($WINE)"
+    exit 1
+fi
+
+# Show dialog
+export NEWT_COLORS='
+root=,blue
+shadow=,blue
+window=,white
+border=white,white
+textbox=white,blue
+listbox=black,white
+actlistbox=magenta,white
+actsellistbox=red,white
+button=green,white'
+
+if [ ! -x "`which "$DIALOG"`" ]
+then
+    DIALOG=dialog
+fi
+
+TMPFILE=`mktemp` || exit 1
+
+$DIALOG --menu \
+    "                Smoothing Mode" 11 49\
+    3\
+        1. "ClearType smoothing: RGB (subpixel)"\
+        2. "ClearType smoothing: BGR (subpixel)"\
+        3. "Disable smoothing" 2> $TMPFILE
+
+STATUS=$?
+ANSWER=`cat $TMPFILE`
+
+if [ $STATUS != 0 ]
+then 
+    rm -f $TMPFILE
+    exit 1
+fi
+
+# As default
+MODE=0 # 0 = Disabled; 2 = Enabled
+TYPE=0 # 1 = Regular;  2 = Subpixel
+ORIENTATION=1 # 0 = BGR; 1 = RGB
+
+case $ANSWER in
+    
+    1.) # Enable ClearType RGB
+        MODE=2
+        TYPE=2
+        ;;
+    2.) # Enable ClearType BGR
+        MODE=2
+        TYPE=2
+        ORIENTATION=0
+        ;;
+    3.) # Disable
+        ;;
+    *)
+        rm -f $TMPFILE
+        echo Unexpected option: $ANSWER
+        exit 1
+        ;;
+esac
+
+# Applying smmothing mode
+echo "REGEDIT4
+
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+\"FontSmoothing\"=\"$MODE\"
+\"FontSmoothingOrientation\"=dword:0000000$ORIENTATION
+\"FontSmoothingType\"=dword:0000000$TYPE
+\"FontSmoothingGamma\"=dword:00000578" > $TMPFILE
+
+# Applying status
+GREEN='\033[1;32m'
+CYAN='\033[1;36m'
+
+clear
+echo -n -e "${CYAN}Applying changes... "
+
+$WINE regedit $TMPFILE 2> /dev/null
+rm -f $TMPFILE
+
+echo -e "${GREEN}OK"
