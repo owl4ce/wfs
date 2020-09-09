@@ -2,10 +2,9 @@
 
 <a href="./assets/preview.gif"><img src="./assets/preview.gif" alt="preview" align="right" width="516px"></a>
 
-**Installation**: \
-You can clone with git clone
+Clone this repository
 ```bash
-https://github.com/owl4ce/wine-font-smoothing.git
+git clone https://github.com/owl4ce/wine-font-smoothing.git
 ```
 or download it as a zip. After that, execute the [wfs](./wfs) program.
 
