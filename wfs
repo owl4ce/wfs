@@ -2,6 +2,9 @@
 
 # Dialog program for smoothing WINE fonts
 # Author: owl4ce
+# License: GPL-3.0
+# ---------------------------------
+# https://github.com/owl4ce/winebox
 
 WINE=${WINE:-wine}
 WINEPREFIX=${WINEPREFIX:-$HOME/.wine}
