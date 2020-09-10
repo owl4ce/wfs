@@ -3,8 +3,8 @@
 # Dialog program for smoothing WINE fonts
 # Author: owl4ce
 # License: GPL-3.0
-# ---------------------------------
-# https://github.com/owl4ce/winebox
+# ---------------------------------------------
+# https://github.com/owl4ce/wine-font-smoothing
 
 WINE=${WINE:-wine}
 WINEPREFIX=${WINEPREFIX:-$HOME/.wine}
@@ -17,7 +17,7 @@ then
     exit 1
 fi
 
-# Show dialog
+# Dialog section
 export NEWT_COLORS='
 root=,blue
 shadow=,blue
@@ -52,7 +52,7 @@ then
     exit 1
 fi
 
-# As default
+# Default mode
 MODE=0 # 0 = Disabled; 2 = Enabled
 TYPE=0 # 1 = Regular;  2 = Subpixel
 ORIENTATION=1 # 0 = BGR; 1 = RGB
