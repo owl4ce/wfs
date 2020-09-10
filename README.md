@@ -1,12 +1,13 @@
 <h2 align="center">:wine_glass: WINE Font Smoothing</h2>
 
-<a href="./assets/preview.gif"><img src="./assets/preview.gif" alt="preview" align="right" width="516px"></a>
+<a href="./assets/preview.gif"><img src="./assets/preview.gif" alt="preview" align="left" width="516px"></a>
 
-Clone this repository
+<p align="center">Clone this repository</p>
+
 ```bash
 git clone https://github.com/owl4ce/wine-font-smoothing.git
 ```
-or download it as a zip. After that, execute the [wfs](./wfs) program.
+Or download it as a zip. After that, execute the [wfs](./wfs) program.
 
 > :heavy_check_mark: Successfully tested at **wine-5.16 (Staging)**
 
