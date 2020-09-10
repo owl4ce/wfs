@@ -52,7 +52,7 @@ then
     exit 1
 fi
 
-# Default mode
+# Default mode (disabled)
 MODE=0 # 0 = Disabled; 2 = Enabled
 TYPE=0 # 1 = Regular;  2 = Subpixel
 ORIENTATION=1 # 0 = BGR; 1 = RGB
@@ -77,7 +77,7 @@ case $ANSWER in
         ;;
 esac
 
-# Applying smmothing mode
+# Applying smoothing mode
 echo "REGEDIT4
 
 [HKEY_CURRENT_USER\Control Panel\Desktop]
@@ -86,7 +86,7 @@ echo "REGEDIT4
 \"FontSmoothingType\"=dword:0000000$TYPE
 \"FontSmoothingGamma\"=dword:00000578" > $TMPFILE
 
-# Applying status
+# Message status
 GREEN='\033[1;32m'
 CYAN='\033[1;36m'
 
