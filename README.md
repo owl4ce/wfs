@@ -1,4 +1,4 @@
-<h2 align="center">:wine_glass: WINE Font Smoothing</h2>
+<h2 align="center">WINE Font Smoothing</h2>
 
 <a href="./assets/preview.gif"><img src="./assets/preview.gif" alt="preview" align="left" width="516px"></a>
 
