@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Dialog program for smoothing WINE fonts
+# Dialog script for smoothing wine fonts
 # Author: owl4ce
 # License: GPL-3.0
 # ---------------------------------------
@@ -62,9 +62,8 @@ case $ANSWER in
     ;;
     3.) # Disable
     ;;
-    *)
-        rm -f $TMPFILE
-        echo Unexpected option: $ANSWER
+    *)  rm -f $TMPFILE
+        echo "Unexpected option: $ANSWER"
         exit 1
     ;;
 esac
