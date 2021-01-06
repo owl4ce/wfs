@@ -22,7 +22,7 @@ WINEPREFIX=${WINEPREFIX:-$HOME/.wine}
 DIALOG=whiptail
 
 if [[ ! -x "`which "$WINE" 2> /dev/null`" ]]; then
-    echo -e "\033[1;31mWINE was not found, was it installed?"
+    echo -e "\033[1;31mWine not found, has it been installed?"
     exit 1
 fi
 
