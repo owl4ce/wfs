@@ -1,18 +1,17 @@
-<h2 align="center">WINE Font Smoothing</h2>
+<h2 align="center">Wine Font Smoothing</h2>
 
-<a href="./assets/preview.gif"><img src="./assets/preview.gif" alt="preview" align="left" width="516px"></a>
+<a href="#wine-font-smoothing"><img src="./screenshots/run.gif" align="left" width="516px"/></a>
 
-<p align="center">Clone this repository</p>
+<p align="center">Curl wfs script</p>
 
 ```bash
-git clone https://github.com/owl4ce/wine-font-smoothing.git
+curl -L https://raw.githubusercontent.com/owl4ce/wfs/master/wfs | sh
 ```
-Or download it as a zip. After that, execute the [wfs](./wfs) program.
 
-> :heavy_check_mark: Successfully tested on **wine-5.16 (Staging)**
+> :heavy_check_mark: Successfully tested on **wine-5.22 (Staging)**
 
 ---
 
-<img src="./assets/winecfg.png" alt="screenshots: winecfg" align="center">
+<img src="./screenshots/screenshot.png" align="center"/>
 
-<a href="https://www.deviantart.com/aerilius/art/Ubuntu-Light-Themes-12-10-327631977"><p align="center">Ubuntu Light Themes 12.10</p><a>
+## <a href="https://www.deviantart.com/aerilius/art/Ubuntu-Light-Themes-12-10-327631977"><p align="center">Ubuntu Light Themes 12.10</p><a>
