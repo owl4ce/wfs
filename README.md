@@ -2,7 +2,11 @@
 
 <a href="#wine-font-smoothing"><img src="./screenshots/run.gif" align="left" width="516px"/></a>
 
-<p align="center">Curl wfs script</p>
+## Dependencies
+dialog
+
+## Run
+Curl `wfs` script.
 
 ```bash
 curl -L https://raw.githubusercontent.com/owl4ce/wfs/master/wfs | sh
