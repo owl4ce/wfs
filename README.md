@@ -3,7 +3,7 @@
 <a href="#wine-font-smoothing"><img src="./screenshots/run.gif" align="left" width="516px"/></a>
 
 ## Dependencies <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/wfs?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
-`dialog`
+`dialog` `libnewt`
 
 ## Run
 Curl `wfs` script.
