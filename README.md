@@ -10,7 +10,7 @@ curl -L https://raw.githubusercontent.com/owl4ce/wfs/master/wfs | sh
 
 > :heavy_check_mark: Successfully tested on **wine-5.22 (Staging)**
 
----
+<br>
 
 <img src="./screenshots/screenshot.png" align="center"/>
 
