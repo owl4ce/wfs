@@ -9,7 +9,7 @@
 Curl `wfs` script.
 
 ```bash
-curl -L https://raw.githubusercontent.com/owl4ce/wfs/master/wfs | sh
+curl -L https://raw.githubusercontent.com/owl4ce/wfs/master/wfs | bash
 ```
 
 > :heavy_check_mark: Successfully tested on **wine-5.22 (Staging)**
