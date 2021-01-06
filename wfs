@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Dialog program for smoothing WINE fonts
 # Author: owl4ce
 # License: GPL-3.0
@@ -20,14 +21,12 @@ WINE=${WINE:-wine}
 WINEPREFIX=${WINEPREFIX:-$HOME/.wine}
 DIALOG=whiptail
 
-if [ ! -x "`which "$WINE" 2> /dev/null`" ]
-then
+if [[ ! -x "`which "$WINE" 2> /dev/null`" ]]; then
     echo -e "\033[1;31mWINE was not found, was it installed?"
     exit 1
 fi
 
-if [ ! -x "`which "$DIALOG"`" ]
-then
+if [[ ! -x "`which "$DIALOG"`" ]]; then
     DIALOG=dialog
 fi
 
@@ -41,7 +40,7 @@ $DIALOG --menu \
 STATUS=$?
 ANSWER=`cat $TMPFILE`
 
-if [ $STATUS != 0 ]; then 
+if [[ $STATUS != 0 ]]; then 
     rm -f $TMPFILE
     exit 1
 fi
@@ -80,8 +79,6 @@ echo "REGEDIT4
 
 clear
 echo -n -e "\033[1;36mApplying changes... "
-
 $WINE regedit $TMPFILE 2> /dev/null
 rm -f $TMPFILE
-
 echo -e "\033[1;32mOK"
