@@ -9,7 +9,7 @@
 Curl `wfs` script then select your options.
 
 ```bash
-curl -L https://raw.githubusercontent.com/owl4ce/wfs/master/wfs | bash
+$ curl -L https://raw.githubusercontent.com/owl4ce/wfs/master/wfs | bash
 ```
 
 > :heavy_check_mark: Successfully tested on **wine-5.22 (Staging)**
