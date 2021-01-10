@@ -6,7 +6,7 @@
 `bash` `curl` `dialog` `libnewt` `wine`
 
 ## Run
-Curl `wfs` script.
+Curl `wfs` script then select your options.
 
 ```bash
 curl -L https://raw.githubusercontent.com/owl4ce/wfs/master/wfs | bash
