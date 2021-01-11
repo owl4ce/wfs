@@ -17,31 +17,31 @@ actlistbox=magenta,white
 actsellistbox=red,white
 button=green,white"
 
-WINE=${WINE:-wine}
-WINEPREFIX=${WINEPREFIX:-$HOME/.wine}
-DIALOG=whiptail
+WINE="${WINE:-wine}"
+WINEPREFIX="${WINEPREFIX:-$HOME/.wine}"
+DIALOG="whiptail"
 
-if [[ ! -x "`which "$WINE" 2> /dev/null`" ]]; then
+if [[ ! -x "$(which "$WINE" 2> /dev/null)" ]]; then
     echo -e "\033[1;31mWine not found, has it been installed?"
     exit 1
 fi
 
-if [[ ! -x "`which "$DIALOG"`" ]]; then
-    DIALOG=dialog
+if [[ ! -x "$(which "$DIALOG" 2> /dev/null)" ]]; then
+    DIALOG="dialog"
 fi
 
-TMPFILE=`mktemp` || exit 1
+TMPFILE="$(mktemp)" || exit 1
 $DIALOG --menu \
     "                Smoothing Mode" 11 49\
     3\
         1. "ClearType smoothing: RGB (subpixel)"\
         2. "ClearType smoothing: BGR (subpixel)"\
         3. "Disable smoothing" 2> $TMPFILE
-STATUS=$?
-ANSWER=`cat $TMPFILE`
+STATUS="$?"
+ANSWER="$(cat $TMPFILE)"
 
-if [[ $STATUS != 0 ]]; then 
-    rm -f $TMPFILE
+if [[ "$STATUS" != 0 ]]; then 
+    rm -f "$TMPFILE"
     exit 1
 fi
 
@@ -62,7 +62,7 @@ case $ANSWER in
     ;;
     3.) # Disable
     ;;
-    *)  rm -f $TMPFILE
+    *)  rm -f "$TMPFILE"
         echo "Unexpected option: $ANSWER"
         exit 1
     ;;
