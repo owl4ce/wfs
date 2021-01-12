@@ -17,11 +17,9 @@ actlistbox=magenta,white
 actsellistbox=red,white
 button=green,white"
 
-WINE="${WINE:-wine}"
-WINEPREFIX="${WINEPREFIX:-$HOME/.wine}"
 DIALOG="whiptail"
 
-if [[ ! -x "$(which "$WINE" 2> /dev/null)" ]]; then
+if [[ ! -x "$(which "wine" 2> /dev/null)" ]]; then
     echo -e "\033[1;31mWine not found, has it been installed?"
     exit 1
 fi
@@ -51,12 +49,10 @@ TYPE=0 # 1 = Regular;  2 = Subpixel
 ORIENTATION=1 # 0 = BGR; 1 = RGB
 
 case $ANSWER in
-    1.) # Enable ClearType RGB
-        MODE=2
+    1.) MODE=2 # Enable ClearType RGB
         TYPE=2
     ;;
-    2.) # Enable ClearType BGR
-        MODE=2
+    2.) MODE=2 # Enable ClearType BGR
         TYPE=2
         ORIENTATION=0
     ;;
