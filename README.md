@@ -15,7 +15,9 @@ $ curl -s "https://raw.githubusercontent.com/owl4ce/wfs/master/wfs" | bash
 
 ##  
 
-<img src="./screenshots/screenshot.png" align="center"/>
+<p align="center"><img src="./screenshots/wfs.png" align="center"/></p>
+
+<p align="center"><img src="./screenshots/screenshot.png" align="center"/></p>
 
 ##  
 
