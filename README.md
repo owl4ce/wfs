@@ -1,6 +1,5 @@
 <h2 align="center">Wine Font Smoothing</h2>
 
-##  
 ### Dependencies <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/wfs?style=flat-square&label=&color=fa74b2&logo=GitHub&logoColor=white&labelColor=373e4d"/>
 `bash` `curl` `libnewt` `wine`
 
