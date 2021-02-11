@@ -8,7 +8,7 @@
 Curl `wfs` script then select your options.
 
 ```bash
-$ curl -s "https://raw.githubusercontent.com/owl4ce/wfs/master/wfs" | bash
+$ curl -s "https://raw.githubusercontent.com/owl4ce/wfs/main/wfs" | bash
 ```
 
 > :heavy_check_mark: **wine-5.22 (Staging)**
