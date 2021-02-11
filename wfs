@@ -17,16 +17,13 @@ actlistbox=magenta,white
 actsellistbox=red,white
 button=green,white"
 
-DIALOG="whiptail"
-
 if [[ ! -x "$(which "wine" 2> /dev/null)" ]]; then
-    echo -e "\033[1;31mWine not found, has it been installed?"
+    echo -e "\e[1;31mWine not found, has it been installed?"
     exit 1
 fi
 
-if [[ ! -x "$(which "$DIALOG" 2> /dev/null)" ]]; then
-    DIALOG="dialog"
-fi
+DIALOG="whiptail"
+[[ ! -x "$(which "$DIALOG" 2> /dev/null)" ]] && DIALOG="dialog"
 
 TMPFILE="$(mktemp)" || exit 1
 $DIALOG --menu \
@@ -73,7 +70,7 @@ echo "REGEDIT4
 \"FontSmoothingGamma\"=dword:00000578" > $TMPFILE
 
 clear
-echo -n -e "\033[1;36mApplying changes... "
+echo -n -e "\e[1;36mApplying changes... "
 $WINE regedit $TMPFILE 2> /dev/null
 rm -f $TMPFILE
-echo -e "\033[1;32mOK"
+echo -e "\e[1;32mOK"
