@@ -7,15 +7,15 @@
 # https://github.com/owl4ce/wfs
 
 export NEWT_COLORS="
-root=,blue
-shadow=,blue
-window=,white
-border=white,white
-textbox=white,blue
-listbox=black,white
-actlistbox=magenta,white
-actsellistbox=red,white
-button=green,white"
+root=,black
+shadow=,black
+window=,lightgray
+border=lightgray,lightgray
+textbox=lightgray,gray
+listbox=black,lightgray
+actlistbox=magenta,lightgray
+actsellistbox=red,lightgray
+button=green,lightgray"
 
 if [[ ! -x "$(which "wine" 2> /dev/null)" ]]; then
     echo -e "\e[1;31mWine not found, has it been installed?"
