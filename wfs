@@ -17,10 +17,9 @@ actlistbox=magenta,lightgray
 actsellistbox=red,lightgray
 button=green,lightgray"
 
-if [[ ! -x "$(which "wine" 2> /dev/null)" ]]; then
-    echo -e "\e[1;31mWine not found, has it been installed?"
-    exit 1
-fi
+[[ ! -x "$(which "wine" 2> /dev/null)" ]] && \
+echo -e "\e[1;31mWine not found! \e[0mHas it been installed?"
+exit 1
 
 DIALOG="whiptail"
 [[ ! -x "$(which "$DIALOG" 2> /dev/null)" ]] && DIALOG="dialog"
@@ -35,10 +34,7 @@ $DIALOG --menu \
 STATUS="$?"
 ANSWER="$(cat $TMPFILE)"
 
-if [[ "$STATUS" != 0 ]]; then 
-    rm -f "$TMPFILE"
-    exit 1
-fi
+[[ "$STATUS" != 0 ]] && rm -f "$TMPFILE" && exit 1
 
 # Default mode (disabled)
 MODE=0 # 0 = Disabled; 2 = Enabled
