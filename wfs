@@ -18,7 +18,7 @@ actsellistbox=red,lightgray
 button=green,lightgray"
 
 [[ ! -x "$(which "wine" 2> /dev/null)" ]] && \
-echo -e "\e[1;31mWine not found! \e[0mHas it been installed?"
+echo -e "\e[1;31mWine not found! \e[0mHas it been installed?" && \
 exit 1
 
 DIALOG="whiptail"
