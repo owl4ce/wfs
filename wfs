@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Dialog script for smoothing wine fonts
+# Dialog shellscript for smoothing wine fonts
 # Author: owl4ce
 # License: GPL-3.0
 # ---------------------------------------
@@ -17,12 +17,11 @@ actlistbox=magenta,lightgray
 actsellistbox=red,lightgray
 button=green,lightgray"
 
-[[ ! -x "$(which "wine" 2> /dev/null)" ]] && \
-echo -e "\e[1;31mWine not found! \e[0mHas it been installed?" && \
-exit 1
+[[ ! -x "$(command -v "wine" 2> /dev/null)" ]] && \
+echo -e "\e[1;31mWine not found! \e[0mHas it been installed?" && exit 1
 
 DIALOG="whiptail"
-[[ ! -x "$(which "$DIALOG" 2> /dev/null)" ]] && DIALOG="dialog"
+[[ ! -x "$(command -v "$DIALOG" 2> /dev/null)" ]] && DIALOG="dialog"
 
 TMPFILE="$(mktemp)" || exit 1
 $DIALOG --menu \
@@ -65,8 +64,7 @@ echo "REGEDIT4
 \"FontSmoothingType\"=dword:0000000$TYPE
 \"FontSmoothingGamma\"=dword:00000578" > $TMPFILE
 
-clear
-echo -n -e "\e[1;36mApplying changes... "
+clear && echo -n -e "\e[1;36mApplying changes... "
 $WINE regedit $TMPFILE 2> /dev/null
 rm -f $TMPFILE
 echo -e "\e[1;32mOK"
