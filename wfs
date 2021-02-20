@@ -6,6 +6,8 @@
 # --------------------------------------------
 # https://github.com/owl4ce/wfs
 
+R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; NC="\e[0m"
+
 export NEWT_COLORS="
 root=,black
 shadow=,black
@@ -17,11 +19,18 @@ actlistbox=magenta,lightgray
 actsellistbox=red,lightgray
 button=green,lightgray"
 
-[[ ! -x "$(command -v "wine" 2> /dev/null)" ]] && \
-echo -e "\e[1;31mWine not found! \e[0mHas it been installed?" && exit 1
+if [[ ! "$(command -v "wine")" ]]; then
+    echo -e "${R}Wine not found! ${NC}Is it installed?"
+    exit 1
+fi
 
-DIALOG="whiptail"
-[[ ! -x "$(command -v "$DIALOG" 2> /dev/null)" ]] && DIALOG="dialog"
+if [[ "$(command -v "whiptail")" ]]; then
+    DIALOG="whiptail"
+elif [[ "$(command -v "dialog")" ]]; then
+    DIALOG="dialog"
+else
+    echo -e "${R}Error!${NC} There's no ${M}whiptail${NC} or ${M}dialog${NC} installed."
+fi
 
 TMPFILE="$(mktemp)" || exit 1
 $DIALOG --menu \
@@ -64,7 +73,8 @@ echo "REGEDIT4
 \"FontSmoothingType\"=dword:0000000$TYPE
 \"FontSmoothingGamma\"=dword:00000578" > $TMPFILE
 
-clear && echo -n -e "\e[1;36mApplying changes... "
-$WINE regedit $TMPFILE 2> /dev/null
-rm -f $TMPFILE
-echo -e "\e[1;32mOK"
+clear
+echo -n -e "${C}Applying changes... "
+    $WINE regedit $TMPFILE 2> /dev/null
+    rm -f $TMPFILE
+echo -e "${G}OK${NC}"
