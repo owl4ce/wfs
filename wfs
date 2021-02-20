@@ -42,7 +42,7 @@ $DIALOG --menu \
 STATUS="$?"
 ANSWER="$(cat $TMPFILE)"
 
-[[ "$STATUS" != 0 ]] && rm -f "$TMPFILE" && exit 1
+[[ "$STATUS" != "0" ]] && rm -f "$TMPFILE" && exit 1
 
 # Default mode (disabled)
 MODE=0 # 0 = Disabled; 2 = Enabled
@@ -60,7 +60,7 @@ case $ANSWER in
     3.) # Disable
     ;;
     *)  rm -f "$TMPFILE"
-        echo "Unexpected option: $ANSWER"
+        echo "${R}Unexpected option:${NC} $ANSWER"
         exit 1
     ;;
 esac
