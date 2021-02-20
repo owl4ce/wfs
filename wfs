@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Dialog shellscript for smoothing wine fonts
+# Dialog bash script for smoothing wine fonts
 # Author: owl4ce
 # License: GPL-3.0
 # --------------------------------------------
@@ -20,7 +20,7 @@ actsellistbox=red,lightgray
 button=green,lightgray"
 
 if [[ ! "$(command -v "wine")" ]]; then
-    echo -e "${R}Wine not found! ${NC}Is it installed?"
+    echo -e "${R}Wine not found!${NC} Is it installed?"
     exit 1
 fi
 
@@ -73,7 +73,7 @@ echo "REGEDIT4
 \"FontSmoothingType\"=dword:0000000$TYPE
 \"FontSmoothingGamma\"=dword:00000578" > $TMPFILE
 
-clear
+printf "\033c"
 echo -n -e "${C}Applying changes... "
     $WINE regedit $TMPFILE 2> /dev/null
     rm -f $TMPFILE
