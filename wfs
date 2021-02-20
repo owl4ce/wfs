@@ -3,7 +3,7 @@
 # Dialog shellscript for smoothing wine fonts
 # Author: owl4ce
 # License: GPL-3.0
-# ---------------------------------------
+# --------------------------------------------
 # https://github.com/owl4ce/wfs
 
 export NEWT_COLORS="
