@@ -6,7 +6,7 @@
 # --------------------------------------------
 # https://github.com/owl4ce/wfs
 
-R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; NC="\e[0m"
+R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
 
 export NEWT_COLORS="
 root=,black
@@ -20,7 +20,7 @@ actsellistbox=red,lightgray
 button=green,lightgray"
 
 if [[ ! "$(command -v "wine")" ]]; then
-    echo -e "${R}Wine not found!${NC} Is it installed?"
+    echo -e "${R}Wine not found!${W} Is it installed?${NC}"
     exit 1
 fi
 
@@ -29,7 +29,7 @@ if [[ "$(command -v "whiptail")" ]]; then
 elif [[ "$(command -v "dialog")" ]]; then
     DIALOG="dialog"
 else
-    echo -e "${R}Error!${NC} There's no ${M}whiptail${NC} or ${M}dialog${NC} installed."
+    echo -e "${R}Error!${W} There's no ${M}whiptail${W} or ${M}dialog${W} installed.${NC}"
 fi
 
 TMPFILE="$(mktemp)" || exit 1
@@ -60,7 +60,7 @@ case $ANSWER in
     3.) # Disable
     ;;
     *)  rm -f "$TMPFILE"
-        echo "${R}Unexpected option:${NC} $ANSWER"
+        echo "${R}Unexpected option:${W} $ANSWER${NC}"
         exit 1
     ;;
 esac
