@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# Dialog bash script for smoothing wine fonts
+# Dialog bash script to smoothing wine fonts
 # Author: owl4ce
 # License: GPL-3.0
-# --------------------------------------------
+# -------------------------------------------
 # https://github.com/owl4ce/wfs
 
 R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
