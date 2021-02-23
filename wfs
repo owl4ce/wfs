@@ -73,7 +73,7 @@ echo "REGEDIT4
 \"FontSmoothingType\"=dword:0000000$TYPE
 \"FontSmoothingGamma\"=dword:00000578" > $TMPFILE
 
-printf "\033c"
+printf "\ec"
 echo -n -e "${C}Applying changes... "
     $WINE regedit $TMPFILE 2> /dev/null
     rm -f $TMPFILE
