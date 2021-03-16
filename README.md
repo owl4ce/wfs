@@ -11,7 +11,7 @@ cURL/wget **wfs** then select your options.
 $ curl -s "https://raw.githubusercontent.com/owl4ce/wfs/main/wfs" | bash
 ```
 
-> :heavy_check_mark: **wine-6.2 (Staging)**
+> :heavy_check_mark: **wine-6.X (Staging)**
 
 ##  
 
