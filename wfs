@@ -1,12 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-# Dialog bash script to smoothing wine fonts
+# Dialog shell script to smoothing wine fonts
 # Author: owl4ce
 # License: GPL-3.0
-# -------------------------------------------
+# -----------------------------
 # https://github.com/owl4ce/wfs
 
-R="\e[1;31m"; G="\e[1;32m"; M="\e[1;35m"; C="\e[1;36m"; W="\e[1;37m"; NC="\e[0m"
+R="\e[1;31m" G="\e[1;32m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m"
 
 export NEWT_COLORS="
 root=,black
@@ -19,17 +19,18 @@ actlistbox=magenta,lightgray
 actsellistbox=red,lightgray
 button=green,lightgray"
 
-if [[ ! "$(command -v "wine")" ]]; then
-    echo -e "${R}Wine not found!${W} Is it installed?${NC}"
+if ! type -p "wine" >/dev/null; then
+    printf "${R}Wine not found!${NC} Is it installed?\n"
     exit 1
 fi
 
-if [[ "$(command -v "whiptail")" ]]; then
+if type -p "whiptail" >/dev/null; then
     DIALOG="whiptail"
-elif [[ "$(command -v "dialog")" ]]; then
+elif type -p "dialog" >/dev/null; then
     DIALOG="dialog"
 else
-    echo -e "${R}Error!${W} There's no ${M}whiptail${W} or ${M}dialog${W} installed.${NC}"
+    printf "${R}Error!${NC} There is no ${M}whiptail${NC} or ${M}dialog${NC} installed.\n"
+    exit 1
 fi
 
 TMPFILE="$(mktemp)" || exit 1
@@ -38,13 +39,11 @@ $DIALOG --menu \
     3\
         1. "ClearType smoothing: RGB (subpixel)"\
         2. "ClearType smoothing: BGR (subpixel)"\
-        3. "Disable smoothing" 2> $TMPFILE
-STATUS="$?"
+        3. "Disable smoothing" 2> "$TMPFILE"
 ANSWER="$(cat $TMPFILE)"
 
-[[ "$STATUS" != "0" ]] && rm -f "$TMPFILE" && exit 1
+[[ "$?" != 0 ]] && rm -f "$TMPFILE" && exit 1 || :
 
-# Default mode (disabled)
 MODE=0 # 0 = Disabled; 2 = Enabled
 TYPE=0 # 1 = Regular;  2 = Subpixel
 ORIENTATION=1 # 0 = BGR; 1 = RGB
@@ -57,24 +56,22 @@ case $ANSWER in
         TYPE=2
         ORIENTATION=0
     ;;
-    3.) # Disable
+    3.) # Disabled
     ;;
     *)  rm -f "$TMPFILE"
-        echo "${R}Unexpected option:${W} $ANSWER${NC}"
+        printf "${R}Unexpected option:${NC} $ANSWER\n"
         exit 1
     ;;
 esac
 
 echo "REGEDIT4
-
 [HKEY_CURRENT_USER\Control Panel\Desktop]
 \"FontSmoothing\"=\"$MODE\"
 \"FontSmoothingOrientation\"=dword:0000000$ORIENTATION
 \"FontSmoothingType\"=dword:0000000$TYPE
-\"FontSmoothingGamma\"=dword:00000578" > $TMPFILE
+\"FontSmoothingGamma\"=dword:00000578" > "$TMPFILE"
 
-printf "\ec"
-echo -n -e "${C}Applying changes... "
-    $WINE regedit $TMPFILE 2> /dev/null
-    rm -f $TMPFILE
-echo -e "${G}OK${NC}"
+printf "\ecApplying changes .. "
+$WINE regedit "$TMPFILE" 2> /dev/null
+rm -f "$TMPFILE"
+printf "${G}OK\n"
