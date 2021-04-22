@@ -6,7 +6,7 @@
 # -----------------------------
 # https://github.com/owl4ce/wfs
 
-R="\e[1;31m" G="\e[1;32m" M="\e[1;35m" C="\e[1;36m" W="\e[1;37m" NC="\e[0m"
+R="\033[1;31m" G="\033[1;32m" M="\033[1;35m" C="\033[1;36m" W="\033[1;37m" NC="\033[0m"
 
 export NEWT_COLORS="
 root=,black
@@ -71,7 +71,7 @@ echo "REGEDIT4
 \"FontSmoothingType\"=dword:0000000$TYPE
 \"FontSmoothingGamma\"=dword:00000578" > "$TMPFILE"
 
-printf "\ecApplying changes .. "
+printf "\033cApplying changes .. "
 $WINE regedit "$TMPFILE" 2> /dev/null
 rm -f "$TMPFILE"
 printf "${G}OK\n"
