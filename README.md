@@ -1,7 +1,7 @@
 <h2 align="center">Wine Font Smoothing</h2>
 
 ### Dependencies <img alt="" align="right" src="https://badges.pufler.dev/visits/owl4ce/wfs?style=flat-square&label=&color=000000&logo=GitHub&logoColor=white&labelColor=373e4d"/>
-`sh/bash` `newt/dialog` `wine`
+`dash/bash` `newt/dialog` `wine`
 
 ##  
 ### Run
