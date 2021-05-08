@@ -19,14 +19,14 @@ actlistbox=magenta,lightgray
 actsellistbox=red,lightgray
 button=green,lightgray"
 
-if ! type -p "wine" >/dev/null; then
+if ! type "wine" >/dev/null; then
     printf "${R}Wine not found!${NC} Is it installed?\n"
     exit 1
 fi
 
-if type -p "whiptail" >/dev/null; then
+if type "whiptail" >/dev/null; then
     DIALOG="whiptail"
-elif type -p "dialog" >/dev/null; then
+elif type "dialog" >/dev/null; then
     DIALOG="dialog"
 else
     printf "${R}Error!${NC} There is no ${M}whiptail${NC} or ${M}dialog${NC} installed.\n"
@@ -42,7 +42,7 @@ $DIALOG --menu \
         3. "Disable smoothing" 2> "$TMPFILE"
 ANSWER="$(cat $TMPFILE)"
 
-[[ "$?" != 0 ]] && rm -f "$TMPFILE" && exit 1 || :
+[[ "$?" -ne 0 ]] && rm -f "$TMPFILE" && exit 1 || :
 
 MODE=0 # 0 = Disabled; 2 = Enabled
 TYPE=0 # 1 = Regular;  2 = Subpixel
