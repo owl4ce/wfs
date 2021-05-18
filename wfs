@@ -42,7 +42,7 @@ $DIALOG --menu \
         3. "Disable smoothing" 2> "$TMPFILE"
 ANSWER="$(cat $TMPFILE)"
 
-[[ "$?" -ne 0 ]] && rm -f "$TMPFILE" && exit 1 || :
+[ "$?" -ne 0 ] && rm -f "$TMPFILE" && exit 1 || :
 
 MODE=0 # 0 = Disabled; 2 = Enabled
 TYPE=0 # 1 = Regular;  2 = Subpixel
