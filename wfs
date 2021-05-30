@@ -19,14 +19,14 @@ actlistbox=magenta,lightgray
 actsellistbox=red,lightgray
 button=green,lightgray"
 
-if ! type "wine" >/dev/null; then
+if ! type "wine" >/dev/null 2>&1; then
     printf "${R}Wine not found!${NC} Is it installed?\n"
     exit 1
 fi
 
-if type "whiptail" >/dev/null; then
+if type "whiptail" >/dev/null 2>&1; then
     DIALOG="whiptail"
-elif type "dialog" >/dev/null; then
+elif type "dialog" >/dev/null 2>&1; then
     DIALOG="dialog"
 else
     printf "${R}Error!${NC} There is no ${M}whiptail${NC} or ${M}dialog${NC} installed.\n"
